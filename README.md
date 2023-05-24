@@ -4,9 +4,9 @@ Projekts "Drag N Drop", realizē automašīnu novietošanas spēli. Spēle pared
 ## Darāmo darbu saraksts
 - [x] Iespēja pārvietot automašīnu objektus
 - [x] Iespēja objektu novietot brīvā vietā uz kartes
-- [ ] Iespēja objektu novietot uz nepareizā laukuma
-- [ ] Iespēja objektu novietot uz pareizā laukuma
-- [ ] Iespēja rotēt objektu pulksteņrādītāja un pretējā virzienā
-- [ ] Iespēja mainīt objekta izmēru pa x asi
-- [ ] Iespēja mainīt objekta izmēru pa y asi
-- [ ] Skaņas efekti
+- [x] Iespēja objektu novietot uz nepareizā laukuma
+- [x] Iespēja objektu novietot uz pareizā laukuma
+- [x] Iespēja rotēt objektu pulksteņrādītāja un pretējā virzienā
+- [x] Iespēja mainīt objekta izmēru pa x asi
+- [x] Iespēja mainīt objekta izmēru pa y asi
+- [x] Skaņas efekti
