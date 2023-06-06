@@ -9,6 +9,7 @@ public class NomesanasVieta : MonoBehaviour,
 	private Vector2 vietasIzm, velkObjIzm;
 	private float xIzmStarpiba, yIzmStarpiba;
 	public Objekti objektuSkripts;
+    public int pareizajaVieta = 0;
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -45,8 +46,9 @@ public class NomesanasVieta : MonoBehaviour,
 					(rotacijasStarpiba >= 354 && rotacijasStarpiba <= 360))
 					&& (xIzmStarpiba <= 0.1 && yIzmStarpiba <= 0.1))
 				{
-					Debug.Log("Nomests pareizajā vietā!");
+					Debug.Log("Nomests pareizajā vietā!"); ///////////////////////
                     objektuSkripts.vaiIstajaVieta = true;
+                    pareizajaVieta++;
                     eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition
 						= GetComponent<RectTransform>().anchoredPosition;
 
