@@ -7,7 +7,7 @@ public class Objekti : MonoBehaviour {
 	public GameObject atraPalidziba;
 	public GameObject autobuss;
 	public GameObject b2;
-	public GameObject cementaMasina;
+	public GameObject cementuMasina;
 	public GameObject e46;
 	public GameObject e61;
 	public GameObject ekskavators;
