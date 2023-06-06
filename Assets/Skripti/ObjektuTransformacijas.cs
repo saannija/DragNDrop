@@ -12,13 +12,13 @@ public class ObjektuTransformacijas : MonoBehaviour {
 			if (Input.GetKey(KeyCode.Z))
 			{
 				objektuSkripts.pedejaisVilktais.
-				GetComponent<RectTransform>().Rotate(0, 0, Time.deltaTime * 9f);
+				GetComponent<RectTransform>().Rotate(0, 0, Time.deltaTime * 50f);
 			}
 
 			if (Input.GetKey(KeyCode.X))
 			{
 				objektuSkripts.pedejaisVilktais.
-				GetComponent<RectTransform>().Rotate(0, 0, -Time.deltaTime * 9f);
+				GetComponent<RectTransform>().Rotate(0, 0, -Time.deltaTime * 50f);
 			}
 
 			if (Input.GetKey(KeyCode.UpArrow))
@@ -31,7 +31,7 @@ public class ObjektuTransformacijas : MonoBehaviour {
 						new Vector2(objektuSkripts.pedejaisVilktais.
 						GetComponent<RectTransform>().transform.localScale.x,
 						objektuSkripts.pedejaisVilktais.
-						GetComponent<RectTransform>().transform.localScale.y + 0.001f);
+						GetComponent<RectTransform>().transform.localScale.y + 0.005f);
 				}
 			}
 
@@ -45,7 +45,7 @@ public class ObjektuTransformacijas : MonoBehaviour {
 						new Vector2(objektuSkripts.pedejaisVilktais.
 						GetComponent<RectTransform>().transform.localScale.x,
 						objektuSkripts.pedejaisVilktais.
-						GetComponent<RectTransform>().transform.localScale.y - 0.001f);
+						GetComponent<RectTransform>().transform.localScale.y - 0.005f);
 				}
 			}
 
@@ -58,7 +58,7 @@ public class ObjektuTransformacijas : MonoBehaviour {
                     objektuSkripts.pedejaisVilktais.
                         GetComponent<RectTransform>().transform.localScale =
                         new Vector2(objektuSkripts.pedejaisVilktais.
-                        GetComponent<RectTransform>().transform.localScale.x - 0.001f,
+                        GetComponent<RectTransform>().transform.localScale.x - 0.005f,
                         objektuSkripts.pedejaisVilktais.
                         GetComponent<RectTransform>().transform.localScale.y);
                 }
@@ -72,7 +72,7 @@ public class ObjektuTransformacijas : MonoBehaviour {
                     objektuSkripts.pedejaisVilktais.
                         GetComponent<RectTransform>().transform.localScale =
                         new Vector2(objektuSkripts.pedejaisVilktais.
-                        GetComponent<RectTransform>().transform.localScale.x + 0.001f,
+                        GetComponent<RectTransform>().transform.localScale.x + 0.005f,
                         objektuSkripts.pedejaisVilktais.
                         GetComponent<RectTransform>().transform.localScale.y);
                 }
