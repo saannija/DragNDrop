@@ -35,7 +35,7 @@ public class DragDropSkripts : MonoBehaviour,
     public void OnDrag(PointerEventData eventData)
     {
         velkObjRectTransf.anchoredPosition +=
-        eventData.delta / objektuSkripts.kanva.scaleFactor; 
+        eventData.delta / objektuSkripts.kanva.scaleFactor*1.5f; 
     }
 
     public void OnEndDrag(PointerEventData eventData)
