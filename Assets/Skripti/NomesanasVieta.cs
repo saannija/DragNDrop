@@ -9,7 +9,7 @@ public class NomesanasVieta : MonoBehaviour,
 	private Vector2 vietasIzm, velkObjIzm;
 	private float xIzmStarpiba, yIzmStarpiba;
 	public Objekti objektuSkripts;
-    public int pareizajaVieta = 0;
+    private int pareizajaVieta = 0;
 
     public void OnDrop(PointerEventData eventData)
     {

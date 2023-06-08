@@ -4,11 +4,11 @@ Projekts "Drag N Drop", realizē automašīnu novietošanas spēli. Spēle pared
 ## ToDo
 - [x] pievienot masinas + funkc
 - [ ] skanas
-- [ ] speles pabeigsanas ui
+- [x] speles pabeigsanas ui
 - [x] laiks (timer)
-- [ ] zvaigznes
+- [x] zvaigznes
 - [ ] progress bar ?
-- [ ] restart speli
+- [x] restart speli
 - [x] start scene
 - [ ] partaisit start latviski
 - [ ] komentet kodu
