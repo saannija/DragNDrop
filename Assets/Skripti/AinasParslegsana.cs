@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class AinasParslegsana : MonoBehaviour {
 
-	public void Sakt () {
-		SceneManager.LoadScene("PilsetasKarte");
+	public void Sakt () { //piespiesta poga start
+		SceneManager.LoadScene("PilsetasKarte"); //sakas speles aina
 	}
 
-	public void Atpakal()
+	public void Atpakal() //atgriezties uz startu
 	{
 		SceneManager.LoadScene("Starts");
 	}
 
-	public void Aizvert()
+	public void Aizvert() //aizvert aplikaciju
 	{
 		Application.Quit();
 	}

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Objekti : MonoBehaviour {
+	//visas masinas
 	public GameObject atkritumuMasina;
 	public GameObject atraPalidziba;
 	public GameObject autobuss;
@@ -15,7 +16,7 @@ public class Objekti : MonoBehaviour {
 	public GameObject traktors;
 	public GameObject traktors2;
 	public GameObject ugunsdzeseji;
-
+	//masinu koordinates
 	[HideInInspector]
 	public Vector2 atkrMKoord;
 	[HideInInspector]
@@ -41,18 +42,19 @@ public class Objekti : MonoBehaviour {
 	[HideInInspector]
 	public Vector2 ugunsKoord;
 
-	public Canvas kanva;
+	public Canvas kanva; //kanva, kur ir ui elementi
 
-	public AudioSource skanasAvots;
-	public AudioClip[] skanasKoAtskanot;
+	public AudioSource skanasAvots; //fona muzika
+	public AudioClip[] skanasKoAtskanot; //visas masinu skanas
 
 	[HideInInspector]
-	public bool vaiIstajaVieta = false;
+	public bool vaiIstajaVieta = false; // vai objekts ir pareizaja vieta
 
-	public GameObject pedejaisVilktais = null;
+	public GameObject pedejaisVilktais = null; //pedejais vilktais (lai mainitu izmeru/rotaciju)
 
 
 	void Start() {
+		//masinu sakuma pozicijas
 		atkrMKoord =
 		atkritumuMasina.GetComponent<RectTransform>().localPosition;
 		

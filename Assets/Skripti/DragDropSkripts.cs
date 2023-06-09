@@ -22,36 +22,35 @@ public class DragDropSkripts : MonoBehaviour,
         //Piekļūst objeta RectTransform komponentei
         velkObjRectTransf = GetComponent<RectTransform>();
     }
-
+    //uzsak vilksanu
     public void OnBeginDrag(PointerEventData eventData)
     {
         Debug.Log("Uzklikšķināts uz velkama objekta!");
-        objektuSkripts.pedejaisVilktais = null;
-        kanvasGrupa.alpha = 0.6f;
+        objektuSkripts.pedejaisVilktais = null; //pedejais vilktais ir null
+        kanvasGrupa.alpha = 0.6f; 
         kanvasGrupa.blocksRaycasts = false;
     }
-
-    //Turpināsim no šīs vietas
+    //vilksana
     public void OnDrag(PointerEventData eventData)
     {
         velkObjRectTransf.anchoredPosition +=
-        eventData.delta / objektuSkripts.kanva.scaleFactor*1.5f; 
+        eventData.delta / objektuSkripts.kanva.scaleFactor; 
     }
-
+    //beidzas vilksana (nomet)
     public void OnEndDrag(PointerEventData eventData)
     {
         objektuSkripts.pedejaisVilktais =
-             eventData.pointerDrag;
-        kanvasGrupa.alpha = 1f;
+             eventData.pointerDrag; //samaina pedejo vilkto objektu
+        kanvasGrupa.alpha = 1f; 
 
-        if(objektuSkripts.vaiIstajaVieta == false) {
+        if(objektuSkripts.vaiIstajaVieta == false) { //ja nav istaja vieta nekas
             kanvasGrupa.blocksRaycasts = true;
 
         } else {
-            objektuSkripts.pedejaisVilktais = null;
+            objektuSkripts.pedejaisVilktais = null; //ja ir tad pedejais vilktais ir null
         }
 
-        objektuSkripts.vaiIstajaVieta = false;
+        objektuSkripts.vaiIstajaVieta = false; //nomaina ka objekts nav istaja vieta, lai var parbaudit nakamo
     }
 
     public void OnPointerDown(PointerEventData eventData)

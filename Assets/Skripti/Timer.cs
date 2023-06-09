@@ -7,33 +7,34 @@ using System.Net.NetworkInformation;
 
 public class Timer : MonoBehaviour {
 
-    public static float taimeris;
-    public GameObject teksts;
-    private static string laiks;
+    public static float taimeris; //taimeris
+    public GameObject teksts; //teksta laucins, kur var redzet laiku
+    private static string laiks; //tiek uzglabats laiks
 
 	// Use this for initialization
 	void Start () 
     {
         taimeris = 0;
-        laiks = hronometrs(false);
+        laiks = hronometrs(false); 
         teksts.GetComponent<Text>().text = laiks;
 	}
 
+    //tiek skaitits laiks (parveidots, sarekinats)
     public static string hronometrs(bool sek)
     {
         int s, min, h;
-        s = Mathf.RoundToInt(taimeris);
+        s = Mathf.RoundToInt(taimeris); //noapalo
 
-        h = s / (60 * 60);
-        s -= h * (60 * 60);
-        min = s / 60;
-        s -= min * 60;
+        h = s / (60 * 60); //aprekina stundas
+        s -= h * (60 * 60); //cik sekundes paliek
+        min = s / 60; //aprekina minutes
+        s -= min * 60; //cik sekundes paliek, beigas iegust laiku stundas, minutes un sekundes
 
-        string sekund, minut, stund;
+        string sekund, minut, stund; //laika pierakstisanai teksta lodzina
 
-        if (s < 10)
+        if (s < 10) //ja sekundes <10 vajag 0 prieksa
             sekund = ":0" + s;
-        else
+        else //nevajag
             sekund = ":" + s;
 
         if (min < 10)
@@ -46,14 +47,14 @@ public class Timer : MonoBehaviour {
         else
             stund = "" + h;
 
-        laiks = stund + minut + sekund;
+        laiks = stund + minut + sekund; //saskaita string vertibas, lai iegutu vienu
 
-        return laiks;
+        return laiks; //atgriez laiku
     }
     // Update is called once per frame
     void Update () {
-        taimeris += Time.deltaTime;
-        laiks = hronometrs(false);
-        teksts.GetComponent<Text>().text = laiks;
+        taimeris += Time.deltaTime; //laika starpiba
+        laiks = hronometrs(false); //formatesana
+        teksts.GetComponent<Text>().text = laiks; //izvadisana ekrana
 	}
 }
