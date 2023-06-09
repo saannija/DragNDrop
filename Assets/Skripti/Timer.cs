@@ -24,11 +24,6 @@ public class Timer : MonoBehaviour {
         int s, min, h;
         s = Mathf.RoundToInt(taimeris);
 
-       /* if (sek)
-        {
-            return "" + s;
-        }*/
-
         h = s / (60 * 60);
         s -= h * (60 * 60);
         min = s / 60;
@@ -55,14 +50,6 @@ public class Timer : MonoBehaviour {
 
         return laiks;
     }
-    //https://www.youtube.com/watch?v=27uKJvOpdYw
-    //https://youtu.be/ijAN0QI70UU
-    //https://www.youtube.com/watch?v=N_wVaKRr42M
-    //https://www.youtube.com/watch?v=YUcvy9PHeXs
-    //https://gamedevbeginner.com/how-to-make-countdown-timer-in-unity-minutes-seconds/
-
-    //UI https://www.youtube.com/watch?v=_RIsfVOqTaE
-    //https://www.youtube.com/watch?v=lF26yGJbsQk
     // Update is called once per frame
     void Update () {
         taimeris += Time.deltaTime;

@@ -1,18 +1,34 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class NomesanasVieta : MonoBehaviour, 
-	IDropHandler{
+public class NomesanasVieta : MonoBehaviour, IDropHandler
+{
 	private float vietasZRot, velkObjZRot, rotacijasStarpiba;
 	private Vector2 vietasIzm, velkObjIzm;
 	private float xIzmStarpiba, yIzmStarpiba;
 	public Objekti objektuSkripts;
-    private int pareizajaVieta = 0;
 
-    public void OnDrop(PointerEventData eventData)
+	[HideInInspector]
+    public static int correctObjectCount = 0;
+
+    public Uzvara uzv = new Uzvara();
+
+    private void Start()
     {
+        // Find the GameObject with the Uzvara script and assign it to the uzv variable
+        uzv = GameObject.FindObjectOfType<Uzvara>();
+
+        if (uzv == null)
+        {
+            Debug.LogError("Could not find the Uzvara script in the scene.");
+        }
+    }
+    public void OnDrop(PointerEventData eventData)
+	{
+		Debug.Log("OnDrop");
 		if (eventData.pointerDrag != null)
 		{
 			if (eventData.pointerDrag.tag.Equals(tag))
@@ -46,9 +62,26 @@ public class NomesanasVieta : MonoBehaviour,
 					(rotacijasStarpiba >= 354 && rotacijasStarpiba <= 360))
 					&& (xIzmStarpiba <= 0.1 && yIzmStarpiba <= 0.1))
 				{
-					Debug.Log("Nomests pareizajā vietā!"); ///////////////////////
+
                     objektuSkripts.vaiIstajaVieta = true;
-                    pareizajaVieta++;
+                    /*if (uzv != null)
+					{
+                       uzv.objektuSk();
+                    }
+                    else
+                    {
+                        Debug.LogError("uzv object is null. Make sure it is assigned.");
+                    }*/
+                    correctObjectCount++;
+                    if (correctObjectCount == 12)
+                    {
+                        uzv.speleBeidzas();
+                    }
+
+                    // Rest of your code
+
+                    Debug.Log("Correct Object Count: " + correctObjectCount);
+
                     eventData.pointerDrag.GetComponent<RectTransform>().anchoredPosition
 						= GetComponent<RectTransform>().anchoredPosition;
 
@@ -74,52 +107,52 @@ public class NomesanasVieta : MonoBehaviour,
 								objektuSkripts.skanasKoAtskanot[3]);
 							break;
 
-                        case "masina1":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[4]);
-                            break;
+						case "masina1":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[4]);
+							break;
 
-                        case "masina2":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[5]);
-                            break;
+						case "masina2":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[5]);
+							break;
 
-                        case "masina3":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[4]);
-                            break;
+						case "masina3":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[6]);
+							break;
 
-                        case "policija":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[6]);
-                            break;
+						case "policija":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[7]);
+							break;
 
-                        case "traktors1":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[7]);
-                            break;
+						case "traktors1":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[8]);
+							break;
 
-                        case "traktors2":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[8]);
-                            break;
+						case "traktors2":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[9]);
+							break;
 
-                        case "traktors3":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[9]);
-                            break;
+						case "traktors3":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[10]);
+							break;
 
-                        case "traktors4":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[10]);
-                            break;
+						case "traktors4":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[11]);
+							break;
 
-                        case "ugunsdzeseji":
-                            objektuSkripts.skanasAvots.PlayOneShot(
-                                objektuSkripts.skanasKoAtskanot[11]);
-                            break;
+						case "ugunsdzeseji":
+							objektuSkripts.skanasAvots.PlayOneShot(
+								objektuSkripts.skanasKoAtskanot[12]);
+							break;
 
-                        default:
+						default:
 							Debug.Log("Tags nav definēts!");
 							break;
 					}
@@ -131,84 +164,84 @@ public class NomesanasVieta : MonoBehaviour,
 				objektuSkripts.skanasAvots.PlayOneShot(
 					objektuSkripts.skanasKoAtskanot[0]);
 
-                switch (eventData.pointerDrag.tag){
-                    case "atkritumi":
+				switch (eventData.pointerDrag.tag){
+					case "atkritumi":
 						objektuSkripts.atkritumuMasina.
 						GetComponent<RectTransform>().localPosition =
 						objektuSkripts.atkrMKoord;
-                        break;
+						break;
 
-                    case "atrie":
-                        objektuSkripts.atraPalidziba.
-                        GetComponent<RectTransform>().localPosition =
-                        objektuSkripts.atrPKoord;
-                        break;
+					case "atrie":
+						objektuSkripts.atraPalidziba.
+						GetComponent<RectTransform>().localPosition =
+						objektuSkripts.atrPKoord;
+						break;
 
-                    case "buss":
-                        objektuSkripts.autobuss.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.bussKoord;
-                        break;
+					case "buss":
+						objektuSkripts.autobuss.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.bussKoord;
+						break;
 
-                    case "masina1":
-                        objektuSkripts.b2.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.b2Koord;
-                        break;
+					case "masina1":
+						objektuSkripts.b2.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.b2Koord;
+						break;
 
-                    case "masina2":
-                        objektuSkripts.e46.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.e46Koord;
-                        break;
+					case "masina2":
+						objektuSkripts.e46.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.e46Koord;
+						break;
 
-                    case "masina3":
-                        objektuSkripts.e61.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.e61Koord;
-                        break;
+					case "masina3":
+						objektuSkripts.e61.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.e61Koord;
+						break;
 
-                    case "policija":
-                        objektuSkripts.policija.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.policijaKoord;
-                        break;
+					case "policija":
+						objektuSkripts.policija.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.policijaKoord;
+						break;
 
-                    case "traktors1":
-                        objektuSkripts.cementuMasina.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.cemenMKoord;
-                        break;
+					case "traktors1":
+						objektuSkripts.cementuMasina.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.cemenMKoord;
+						break;
 
-                    case "traktors2":
-                        objektuSkripts.ekskavators.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.ekskavKoord;
-                        break;
+					case "traktors2":
+						objektuSkripts.ekskavators.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.ekskavKoord;
+						break;
 
-                    case "traktors3":
-                        objektuSkripts.traktors.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.traktorsKoord;
-                        break;
+					case "traktors3":
+						objektuSkripts.traktors.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.traktorsKoord;
+						break;
 
-                    case "traktors4":
-                        objektuSkripts.traktors2.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.traktors2Koord;
-                        break;
+					case "traktors4":
+						objektuSkripts.traktors2.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.traktors2Koord;
+						break;
 
-                    case "ugunsdzeseji":
-                        objektuSkripts.ugunsdzeseji.
-                         GetComponent<RectTransform>().localPosition =
-                         objektuSkripts.ugunsKoord;
-                        break;
+					case "ugunsdzeseji":
+						objektuSkripts.ugunsdzeseji.
+						 GetComponent<RectTransform>().localPosition =
+						 objektuSkripts.ugunsKoord;
+						break;
 
-                    default:
-                        Debug.Log("Tags nav definēts!");
-                        break;
-                }
-            }
+					default:
+						Debug.Log("Tags nav definēts!");
+						break;
+				}
+			}
 		}
 		
 	}
