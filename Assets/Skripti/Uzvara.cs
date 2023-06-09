@@ -12,13 +12,16 @@ public class Uzvara : MonoBehaviour {
 	public Text uzvarasLaiks; //uzvaras laiks prieks ui
 	public GameObject laiks; //laiks no speles
 
-    public GameObject zvaigzne1; // zvaigznes, kuras paradisies pec izpilditajiem nosacijumiem
+	public GameObject zvaigzne1;// zvaigznes, kuras paradisies pec izpilditajiem nosacijumiem
 	public GameObject zvaigzne2;
 	public GameObject zvaigzne3;
 
     void Start () {
 		uzvara.SetActive(false); //nerada uzvaras ui
-	}
+        zvaigzne1.SetActive(true);
+        zvaigzne2.SetActive(false);
+        zvaigzne3.SetActive(false);
+    }
 
 	//iespeja velreiz soelet
 	public void Atkartot()
